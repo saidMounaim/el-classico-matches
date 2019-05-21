@@ -147,8 +147,11 @@ var goalsImage = gsGoals.selectAll('image').data((d, i) => d.goals).enter().appe
 	  .attr("width", 25);*/
 		d3.selectAll('text.' + d.player.replace(' ', '').replace('.', '')).style("opacity", 0.9).attr('fill', '#fff');
 	d3.select('div#player'+(d.team == 'Barcelona' ? 'FCB' : 'RM')).text(d.player + ' ' + goalsNbr);
-	d3.select('img#avatar'+(d.team == 'Barcelona' ? 'FCB' : 'RM')).attr("src", d.player.replace(' ', '').replace('.', ''));
-  }
+	d3.select('img#avatar' + (d.team == 'Barcelona' ? 'FCB' : 'RM'))
+		.attr("src", "images/players/" + d.player.replace(' ', '').replace('.', '') + ".jpg")
+		.attr("width", "247")
+		.attr("height", "221");
+	}
 
   function handleMouseOut(d, i) {
     d3.selectAll('image').attr("height", 20).attr("width", 20);
